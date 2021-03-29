@@ -107,7 +107,7 @@ public class gameManager : MonoBehaviour
         sideWall.GetComponent<Renderer>().enabled = false;
         powerSlider.gameObject.SetActive(true);
         throwButton.interactable = false;
-        infoText.text = "Sideview (change camera to throw)";
+        infoText.text = "Sideview (change to backview)";
         reticle.enabled = false;
         lastBallThrown = false;
         ballsList = new GameObject[3];
@@ -261,7 +261,7 @@ public class gameManager : MonoBehaviour
                 sideCam.enabled = true;
                 mainCam.enabled = false;
                 throwButton.interactable = false;
-                infoText.text = "Sideview (change camera to backview)";
+                infoText.text = "Sideview (change to backview)";
                 reticle.enabled = false;
                 sideWall.GetComponent<Renderer>().enabled = false;
             }
@@ -310,5 +310,9 @@ public class gameManager : MonoBehaviour
     {
         startButtonClicked = true;
         Destroy(startBox);
+    }
+    public void restartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

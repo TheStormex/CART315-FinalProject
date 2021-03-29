@@ -8,6 +8,7 @@ public class endScreen : MonoBehaviour
 {
     public Text endText;
     public Button replayButton;
+    static public string loseText = "You did not knock down the pins! You lose!";
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class endScreen : MonoBehaviour
         }
         else if (gameManager.winGame == false)
         {
-            endText.text = "You did not knock down the pins! You Lose!";
+            endText.text = loseText;
         }
     }
     public void replayGame()
@@ -33,6 +34,23 @@ public class endScreen : MonoBehaviour
         gameManager.heavyBalls = 3;
         gameManager.midBalls = 4;
         gameManager.lightBalls = 3;
-        SceneManager.LoadSceneAsync("Resources/Scenes/Game", LoadSceneMode.Single);
+        switch (gameManager.level)
+        {
+            case 1:
+                SceneManager.LoadSceneAsync("Resources/Scenes/Level1", LoadSceneMode.Single);
+                break;
+            case 2:
+                SceneManager.LoadSceneAsync("Resources/Scenes/Level2", LoadSceneMode.Single);
+                break;
+            case 3:
+                SceneManager.LoadSceneAsync("Resources/Scenes/Level3", LoadSceneMode.Single);
+                break;
+            case 4:
+                SceneManager.LoadSceneAsync("Resources/Scenes/Level4", LoadSceneMode.Single);
+                break;
+            default:
+                break;
+        }
+
     }
 }
