@@ -9,6 +9,7 @@ public class gameManager : MonoBehaviour
     static public bool winGame = false;
     public Camera mainCam;
     public Camera sideCam;
+    public Camera backCam;
     public GameObject sideWall;
 
     static public int pinsLeft = 8;
@@ -56,12 +57,20 @@ public class gameManager : MonoBehaviour
     // how many balls on the field
     GameObject[] ballsOnField;
 
+    // which level we are on
+    static public int level = 1;
+
+    // start box clicked?
+    public GameObject startBox;
+    public bool startButtonClicked = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
         sideCam.enabled = true;
         mainCam.enabled = false;
+        backCam.enabled = false;
         sideWall.GetComponent<Renderer>().enabled = false;
         powerSlider.gameObject.SetActive(true);
         throwButton.interactable = false;
@@ -197,58 +206,76 @@ public class gameManager : MonoBehaviour
     }
     public void changeCamera()
     {
-        if (sideCam.enabled == true)
+        if (startButtonClicked == true)
         {
-            sideCam.enabled = false;
-            mainCam.enabled = true;
-            sideWall.GetComponent<Renderer>().enabled = true;
-            throwButton.interactable = true;
-            infoText.text = "Use WASD to control Camera";
-            reticle.enabled = true;
-
-        }
-        else if (sideCam.enabled == false)
-        {
-            sideCam.enabled = true;
-            mainCam.enabled = false;
-            sideWall.GetComponent<Renderer>().enabled = false;
-            throwButton.interactable = false;
-            infoText.text = "Sideview (change camera to throw)";
-            reticle.enabled = false;
+            if (sideCam.enabled == true)
+            {
+                sideCam.enabled = false;
+                backCam.enabled = true;
+                sideWall.GetComponent<Renderer>().enabled = true;
+                infoText.text = "Backview (change camera to throw)";
+            }
+            else if (sideCam.enabled == false && backCam.enabled == true)
+            {
+                backCam.enabled = false;
+                mainCam.enabled = true;
+                throwButton.interactable = true;
+                infoText.text = "Use WASD to control Camera";
+                reticle.enabled = true;
+            }
+            else if (sideCam.enabled == false && mainCam.enabled == true)
+            {
+                sideCam.enabled = true;
+                mainCam.enabled = false;
+                throwButton.interactable = false;
+                infoText.text = "Sideview (change camera to backview)";
+                reticle.enabled = false;
+                sideWall.GetComponent<Renderer>().enabled = false;
+            }
         }
     }
     public void chooseBall(int chosen)
     {
-        whichBall = chosen;
-
+        if (startButtonClicked == true)
+        {
+            whichBall = chosen;
+        }
     }
     public void throwBall()
     {
-        // Instantiate
-        Vector3 cameraPosition = new Vector3(mainCam.transform.position.x, mainCam.transform.position.y, mainCam.transform.position.z);
-        switch (whichBall)
+        if (startButtonClicked == true)
         {
-            case 0:
-                if (lightBalls > 0)
-                {
-                    lightBalls--;
-                    GameObject newBall = Instantiate(ballsList[whichBall], cameraPosition, Quaternion.identity);
-                }
-                break;
-            case 1:
-                if (midBalls > 0)
-                {
-                    midBalls--;
-                    GameObject newBall = Instantiate(ballsList[whichBall], cameraPosition, Quaternion.identity);
-                }
-                break;
-            case 2:
-                if (heavyBalls > 0)
-                {
-                    heavyBalls--;
-                    GameObject newBall = Instantiate(ballsList[whichBall], cameraPosition, Quaternion.identity);
-                }
-                break;
+            // Instantiate
+            Vector3 cameraPosition = new Vector3(mainCam.transform.position.x, mainCam.transform.position.y, mainCam.transform.position.z);
+            switch (whichBall)
+            {
+                case 0:
+                    if (lightBalls > 0)
+                    {
+                        lightBalls--;
+                        GameObject newBall = Instantiate(ballsList[whichBall], cameraPosition, Quaternion.identity);
+                    }
+                    break;
+                case 1:
+                    if (midBalls > 0)
+                    {
+                        midBalls--;
+                        GameObject newBall = Instantiate(ballsList[whichBall], cameraPosition, Quaternion.identity);
+                    }
+                    break;
+                case 2:
+                    if (heavyBalls > 0)
+                    {
+                        heavyBalls--;
+                        GameObject newBall = Instantiate(ballsList[whichBall], cameraPosition, Quaternion.identity);
+                    }
+                    break;
+            }
         }
+    }
+    public void startLevel()
+    {
+        startButtonClicked = true;
+        Destroy(startBox);
     }
 }
