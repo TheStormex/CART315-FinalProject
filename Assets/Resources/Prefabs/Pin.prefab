@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 251550100525518779}
   m_Layer: 0
   m_Name: Pin
-  m_TagString: Untagged
+  m_TagString: pin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,3 +126,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24800e7097092544190df147f74d61e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pinHealth: 2

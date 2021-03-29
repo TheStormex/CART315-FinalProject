@@ -44,23 +44,24 @@ public class pinCode : MonoBehaviour
         gameManager.pinsLeft--;
         if (gameManager.pinsLeft <= 0)
         {
-            if (gameManager.level == 4)
-            {
-                gameManager.winGame = true;
-                SceneManager.LoadSceneAsync("Resources/Scenes/End", LoadSceneMode.Single);
-            } else
-            {
                 switch (gameManager.level)
                 {
                     case 1:
-                        gameManager.level++;
                         SceneManager.LoadSceneAsync("Resources/Scenes/Level2", LoadSceneMode.Single);
+                        break;
+                    case 2:
+                        SceneManager.LoadSceneAsync("Resources/Scenes/Level3", LoadSceneMode.Single);
+                        break;
+                    case 3:
+                        SceneManager.LoadSceneAsync("Resources/Scenes/Level4", LoadSceneMode.Single);
+                        break;
+                    case 4:
+                        gameManager.winGame = true;
+                        SceneManager.LoadSceneAsync("Resources/Scenes/End", LoadSceneMode.Single);
                         break;
                     default:
                         break;
                 }
-            }
-
         }
     }
 }

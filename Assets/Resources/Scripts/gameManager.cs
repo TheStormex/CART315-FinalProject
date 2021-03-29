@@ -68,6 +68,39 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Scene thisScene = SceneManager.GetActiveScene();
+        string thisSceneName = thisScene.name;
+        switch (thisSceneName)
+        {
+            case "Level1":
+                level = 1;
+                lightBalls = 3;
+                midBalls = 4;
+                heavyBalls = 3;
+                break;
+            case "Level2":
+                level = 2;
+                lightBalls = 3;
+                midBalls = 2;
+                heavyBalls = 2;
+                break;
+            case "Level3":
+                level = 3;
+                lightBalls = 2;
+                midBalls = 3;
+                heavyBalls = 4;
+                break;
+            case "Level4":
+                level = 4;
+                lightBalls = 1;
+                midBalls = 2;
+                heavyBalls = 3;
+                break;
+            default:
+                break;
+        }
+        GameObject[] pins = GameObject.FindGameObjectsWithTag("pin");
+        pinsLeft = pins.Length;
         sideCam.enabled = true;
         mainCam.enabled = false;
         backCam.enabled = false;
