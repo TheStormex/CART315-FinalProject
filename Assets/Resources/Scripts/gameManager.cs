@@ -80,7 +80,7 @@ public class gameManager : MonoBehaviour
                 break;
             case "Level2":
                 level = 2;
-                lightBalls = 3;
+                lightBalls = 1;
                 midBalls = 2;
                 heavyBalls = 2;
                 break;
@@ -122,7 +122,33 @@ public class gameManager : MonoBehaviour
         // find all balls
         ballsOnField = GameObject.FindGameObjectsWithTag("ball");
 
+        // find out number of pins left and if 0, go to next level
+        GameObject[] pins = GameObject.FindGameObjectsWithTag("pin");
+        pinsLeft = pins.Length;
+        if (pinsLeft <= 0)
+        {
+            switch (level)
+            {
+                case 1:
+                    SceneManager.LoadSceneAsync("Resources/Scenes/Level2", LoadSceneMode.Single);
+                    break;
+                case 2:
+                    SceneManager.LoadSceneAsync("Resources/Scenes/Level3", LoadSceneMode.Single);
+                    break;
+                case 3:
+                    SceneManager.LoadSceneAsync("Resources/Scenes/Level4", LoadSceneMode.Single);
+                    break;
+                case 4:
+                    gameManager.winGame = true;
+                    SceneManager.LoadSceneAsync("Resources/Scenes/End", LoadSceneMode.Single);
+                    break;
+                default:
+                    break;
+            }
+        }
+
         // display UI
+
         pinsLeftText.text = "Pins Left: " + pinsLeft;
         pinsLeftText.transform.position = new Vector3(Screen.width / 7, Screen.height - Screen.height / 12, 0);
         if (powerBarClimb)
@@ -233,6 +259,7 @@ public class gameManager : MonoBehaviour
             if (ballsOnField.Length <= 0)
             {
                 winGame = false;
+                endScreen.loseText = "You did not destroy all the pins, you lose!";
                 SceneManager.LoadSceneAsync("Resources/Scenes/End", LoadSceneMode.Single);
             }
         }

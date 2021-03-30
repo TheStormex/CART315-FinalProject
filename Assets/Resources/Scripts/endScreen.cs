@@ -8,7 +8,7 @@ public class endScreen : MonoBehaviour
 {
     public Text endText;
     public Button replayButton;
-    static public string loseText = "You did not knock down the pins! You lose!";
+    static public string loseText = "You did not destroy all the pins, you lose!";
 
     // Start is called before the first frame update
     void Start()

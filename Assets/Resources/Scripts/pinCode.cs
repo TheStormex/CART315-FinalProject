@@ -41,27 +41,5 @@ public class pinCode : MonoBehaviour
     void RemovePin()
     {
         Destroy(this.gameObject);
-        gameManager.pinsLeft--;
-        if (gameManager.pinsLeft <= 0)
-        {
-                switch (gameManager.level)
-                {
-                    case 1:
-                        SceneManager.LoadSceneAsync("Resources/Scenes/Level2", LoadSceneMode.Single);
-                        break;
-                    case 2:
-                        SceneManager.LoadSceneAsync("Resources/Scenes/Level3", LoadSceneMode.Single);
-                        break;
-                    case 3:
-                        SceneManager.LoadSceneAsync("Resources/Scenes/Level4", LoadSceneMode.Single);
-                        break;
-                    case 4:
-                        gameManager.winGame = true;
-                        SceneManager.LoadSceneAsync("Resources/Scenes/End", LoadSceneMode.Single);
-                        break;
-                    default:
-                        break;
-                }
-        }
     }
 }

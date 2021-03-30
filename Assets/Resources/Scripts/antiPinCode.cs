@@ -42,6 +42,7 @@ public class antiPinCode : MonoBehaviour
     {
         Destroy(this.gameObject);
         gameManager.winGame = false;
+        endScreen.loseText = "You destroyed a purple pin! You lose!";
         SceneManager.LoadSceneAsync("Resources/Scenes/End", LoadSceneMode.Single);
     }
 }
