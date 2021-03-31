@@ -340,6 +340,9 @@ public class gameManager : MonoBehaviour
     }
     public void restartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (startButtonClicked == true)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }

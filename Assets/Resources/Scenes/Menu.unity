@@ -334,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -529,8 +529,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -9, y: -92}
-  m_SizeDelta: {x: 359.3756, y: 129.8847}
+  m_AnchoredPosition: {x: -10.9879, y: -32}
+  m_SizeDelta: {x: 611.4843, y: 142.6077}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1024051289
 MonoBehaviour:
@@ -554,18 +554,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Bowldest Baller
+  m_Text: Breakdown Bowling
 --- !u!222 &1024051290
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -608,8 +608,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.1443, y: -41.9556}
-  m_SizeDelta: {x: 758.4626, y: 212.0266}
+  m_AnchoredPosition: {x: -2.0737, y: -41}
+  m_SizeDelta: {x: 764.8987, y: 378.2397}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1568904876
 MonoBehaviour:
@@ -633,18 +633,21 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
-    m_Alignment: 0
+    m_MinSize: 0
+    m_MaxSize: 50
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Ever play ''Angry Birds''?  Imagine it but in 3D! '
+  m_Text: Do you like bowling? Do you like to see buildings go boom? Boy do I have
+    a game for you! Get ready to solve 4 levels of challenging puzzles where you
+    must throw balls to destroy pins nested on blocky structures. Do you have the
+    wits and the skills to conquer all the stages?
 --- !u!222 &1568904877
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -822,7 +825,7 @@ RectTransform:
   m_GameObject: {fileID: 1998897861}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.41459, y: 1.41459, z: 1.41459}
   m_Children:
   - {fileID: 395294636}
   m_Father: {fileID: 455244509}
@@ -830,7 +833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000038147, y: -190.3}
+  m_AnchoredPosition: {x: -0.0000038147, y: -161}
   m_SizeDelta: {x: 200.0309, y: 66.153}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1998897863

@@ -21,7 +21,8 @@ public class endScreen : MonoBehaviour
     {
         if (gameManager.winGame == true)
         {
-            endText.text = "All pins are down! You Win!";
+            endText.text = "You've destroyed all the pins and beaten all the levels! You Win! You are the master of Breakdown Bowling!";
+            gameManager.level = 1;
         }
         else if (gameManager.winGame == false)
         {
@@ -30,10 +31,6 @@ public class endScreen : MonoBehaviour
     }
     public void replayGame()
     {
-        gameManager.pinsLeft = 8;
-        gameManager.heavyBalls = 3;
-        gameManager.midBalls = 4;
-        gameManager.lightBalls = 3;
         switch (gameManager.level)
         {
             case 1:
