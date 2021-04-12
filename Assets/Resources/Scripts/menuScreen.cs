@@ -21,6 +21,6 @@ public class menuScreen : MonoBehaviour
     }
     public void playGame()
     {
-        SceneManager.LoadSceneAsync("Resources/Scenes/Level1", LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync("Resources/Scenes/LevelT1", LoadSceneMode.Single);
     }
 }

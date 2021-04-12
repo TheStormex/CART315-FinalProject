@@ -4044,6 +4044,7 @@ MonoBehaviour:
   changeCameraButton: {fileID: 41969746}
   clickInfoText: {fileID: 1751089316}
   controlInfoText: {fileID: 1125003217}
+  reloadButton: {fileID: 563838994}
   lightBallObject: {fileID: 3302995232771354586, guid: ef470717367814743af47c8afb6eb299, type: 3}
   midBallObject: {fileID: 4725007896231606386, guid: 0a41718ecd4df2941913968c325cc572, type: 3}
   heavyBallObject: {fileID: 8812919593461826132, guid: 2326328c30bf24a43a9a0a7b2a0d76b3, type: 3}
@@ -4613,7 +4614,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Destroy all the pins!
+  m_Text: Welcome to the real levels! Good luck!
 --- !u!222 &1350672975
 CanvasRenderer:
   m_ObjectHideFlags: 0

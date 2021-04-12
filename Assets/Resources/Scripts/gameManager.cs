@@ -38,6 +38,10 @@ public class gameManager : MonoBehaviour
     public Text clickInfoText;
     public Text controlInfoText;
 
+    // pause menu
+    public Button reloadButton;
+
+    // balls
     public GameObject lightBallObject;
     public GameObject midBallObject;
     public GameObject heavyBallObject;
@@ -72,26 +76,50 @@ public class gameManager : MonoBehaviour
         string thisSceneName = thisScene.name;
         switch (thisSceneName)
         {
-            case "Level1":
+            case "LevelT1":
                 level = 1;
+                lightBalls = 1;
+                midBalls = 0;
+                heavyBalls = 0;
+                changeCameraButton.gameObject.SetActive(false);
+                midButton.gameObject.SetActive(false);
+                heavyButton.gameObject.SetActive(false);
+                clickInfoText.gameObject.SetActive(false);
+                break;
+            case "LevelT2":
+                level = 2;
+                lightBalls = 1;
+                midBalls = 1;
+                heavyBalls = 1;
+                changeCameraButton.gameObject.SetActive(false);
+                break;
+            case "LevelT3":
+                level = 3;
+                whichBall = 2;
+                lightBalls = 0;
+                midBalls = 0;
+                heavyBalls = 1;
+                break;
+            case "Level1":
+                level = 4;
                 lightBalls = 3;
                 midBalls = 4;
                 heavyBalls = 3;
                 break;
             case "Level2":
-                level = 2;
+                level = 5;
                 lightBalls = 1;
                 midBalls = 2;
                 heavyBalls = 2;
                 break;
             case "Level3":
-                level = 3;
+                level = 6;
                 lightBalls = 2;
                 midBalls = 3;
                 heavyBalls = 4;
                 break;
             case "Level4":
-                level = 4;
+                level = 7;
                 lightBalls = 1;
                 midBalls = 2;
                 heavyBalls = 3;
@@ -101,14 +129,14 @@ public class gameManager : MonoBehaviour
         }
         GameObject[] pins = GameObject.FindGameObjectsWithTag("pin");
         pinsLeft = pins.Length;
-        sideCam.enabled = true;
-        mainCam.enabled = false;
+        sideCam.enabled = false;
+        mainCam.enabled = true;
         backCam.enabled = false;
-        sideWall.GetComponent<Renderer>().enabled = false;
+        sideWall.GetComponent<Renderer>().enabled = true;
         powerSlider.gameObject.SetActive(true);
-        throwButton.interactable = false;
-        infoText.text = "Sideview (change to backview)";
-        reticle.enabled = false;
+        throwButton.interactable = true;
+        infoText.text = "Use WASD to control Camera";
+        reticle.enabled = true;
         lastBallThrown = false;
         ballsList = new GameObject[3];
         ballsList[0] = lightBallObject;
@@ -130,15 +158,24 @@ public class gameManager : MonoBehaviour
             switch (level)
             {
                 case 1:
-                    SceneManager.LoadSceneAsync("Resources/Scenes/Level2", LoadSceneMode.Single);
+                    SceneManager.LoadSceneAsync("Resources/Scenes/LevelT2", LoadSceneMode.Single);
                     break;
                 case 2:
-                    SceneManager.LoadSceneAsync("Resources/Scenes/Level3", LoadSceneMode.Single);
+                    SceneManager.LoadSceneAsync("Resources/Scenes/LevelT3", LoadSceneMode.Single);
                     break;
                 case 3:
-                    SceneManager.LoadSceneAsync("Resources/Scenes/Level4", LoadSceneMode.Single);
+                    SceneManager.LoadSceneAsync("Resources/Scenes/Level1", LoadSceneMode.Single);
                     break;
                 case 4:
+                    SceneManager.LoadSceneAsync("Resources/Scenes/Level2", LoadSceneMode.Single);
+                    break;
+                case 5:
+                    SceneManager.LoadSceneAsync("Resources/Scenes/Level3", LoadSceneMode.Single);
+                    break;
+                case 6:
+                    SceneManager.LoadSceneAsync("Resources/Scenes/Level4", LoadSceneMode.Single);
+                    break;
+                case 7:
                     gameManager.winGame = true;
                     SceneManager.LoadSceneAsync("Resources/Scenes/End", LoadSceneMode.Single);
                     break;
@@ -172,7 +209,9 @@ public class gameManager : MonoBehaviour
         throwButton.transform.position = new Vector3(Screen.width - Screen.width / 3, Screen.height / 5, 0);
         infoText.transform.position = new Vector3(Screen.width - Screen.width / 3.5f, Screen.height - Screen.height / 7, 0);
         clickInfoText.transform.position = new Vector3(Screen.width / 4, Screen.height / 50, 0);
+        reloadButton.transform.position = new Vector3(Screen.width / 3.3f, Screen.height - Screen.height / 20, 0);
         changeCameraButton.transform.position = new Vector3(Screen.width - Screen.width / 8, Screen.height / 10, 0);
+        
         // amount of balls
         lightBallsText.text = "Light x" + lightBalls.ToString();
         lightBallsText.transform.position = new Vector3(Screen.width / 10, Screen.height / 10, 0);
@@ -183,23 +222,23 @@ public class gameManager : MonoBehaviour
 
         // WASD to move camera
 
-        if (sideCam.enabled == false)
+        if (mainCam.enabled == true)
         {
             if (Input.GetKey("w"))
             {
-                pitch -= 1;
+                pitch -= 0.5f;
             }
             if (Input.GetKey("a"))
             {
-                yaw -= 1;
+                yaw -= 0.5f;
             }
             if (Input.GetKey("s"))
             {
-                pitch += 1;
+                pitch += 0.5f;
             }
             if (Input.GetKey("d"))
             {
-                yaw += 1;
+                yaw += 0.5f;
             }
         }
         yaw = Mathf.Clamp(yaw, -50f, 50f);

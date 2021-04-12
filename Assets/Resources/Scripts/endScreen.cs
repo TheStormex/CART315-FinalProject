@@ -34,15 +34,24 @@ public class endScreen : MonoBehaviour
         switch (gameManager.level)
         {
             case 1:
-                SceneManager.LoadSceneAsync("Resources/Scenes/Level1", LoadSceneMode.Single);
+                SceneManager.LoadSceneAsync("Resources/Scenes/LevelT1", LoadSceneMode.Single);
                 break;
             case 2:
-                SceneManager.LoadSceneAsync("Resources/Scenes/Level2", LoadSceneMode.Single);
+                SceneManager.LoadSceneAsync("Resources/Scenes/LevelT2", LoadSceneMode.Single);
                 break;
             case 3:
-                SceneManager.LoadSceneAsync("Resources/Scenes/Level3", LoadSceneMode.Single);
+                SceneManager.LoadSceneAsync("Resources/Scenes/LevelT3", LoadSceneMode.Single);
                 break;
             case 4:
+                SceneManager.LoadSceneAsync("Resources/Scenes/Level1", LoadSceneMode.Single);
+                break;
+            case 5:
+                SceneManager.LoadSceneAsync("Resources/Scenes/Level2", LoadSceneMode.Single);
+                break;
+            case 6:
+                SceneManager.LoadSceneAsync("Resources/Scenes/Level3", LoadSceneMode.Single);
+                break;
+            case 7:
                 SceneManager.LoadSceneAsync("Resources/Scenes/Level4", LoadSceneMode.Single);
                 break;
             default:

@@ -17,7 +17,12 @@ public class pinCode : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
+        // if it rotated too much, destroy it
+        if (this.transform.rotation.x >= 60 || this.transform.rotation.y >= 60 || this.transform.rotation.z >= 60)
+        {
+            Debug.Log("rotate");
+            RemovePin();
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -29,7 +34,7 @@ public class pinCode : MonoBehaviour
         if (collision.relativeVelocity.magnitude > 2)
         {
 
-            pinHealth -= gameManager.powerRating * collision.relativeVelocity.magnitude;
+            pinHealth -= (gameManager.powerRating * collision.relativeVelocity.magnitude * 2);
 
         } 
 

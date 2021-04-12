@@ -24,7 +24,7 @@ public class throwBall : MonoBehaviour
         // if alive for 5 or more seconds and is no longer moving enough, destroy it
         timeAlive += Time.deltaTime;
         float speed = GetComponent<Rigidbody>().velocity.magnitude;
-      if (speed <= 0.65f && timeAlive >= 5 || speed <= 0.8f && timeAlive >= 2)
+      if (speed <= 0.7f && timeAlive >= 5 || speed <= 1 && timeAlive >= 2)
         {
           Destroy(this.gameObject);
         }
